@@ -1,0 +1,530 @@
+.home-page {
+    font-family: Arial, sans-serif;
+    background-color: #f5f4f2;
+    min-height: 100vh;
+    padding: 10px 20px 20px 20px;
+    position: relative;
+}
+
+.container {
+    width: 50%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 25px 20px;
+    position: relative;
+    z-index: 20;
+    transition: border-radius 0.15s ease-in-out;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.header-closed {
+    border-radius: 30px;
+}
+
+.header-open {
+    border-radius: 30px 30px 0 0;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-info {
+    color: #333; /* Цвет текста совпадает с кнопками */
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 21;
+}
+
+.login-btn {
+    background-color: #f5f4f2;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #333;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.login-btn:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.logout-btn {
+    background-color: #f5f4f2;
+    border: none;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #333;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.logout-btn:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.menu-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0 0 30px 30px;
+    padding: 10px 20px;
+    z-index: 15;
+    transform-origin: top;
+    box-sizing: border-box;
+}
+
+.menu-panel-content {
+    background-color: #f5f4f2;
+    border-radius: 30px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.menu-panel-closed {
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out, visibility 0.15s;
+}
+
+.menu-panel-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out, visibility 0.15s;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    color: #333;
+    border-radius: 30px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.menu-btn:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    animation: fadeIn 0.15s ease-in-out;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    z-index: 1000 !important;
+    animation: fadeIn 0.15s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.main-content {
+    position: relative;
+    border-radius: 30px;
+    padding: 40px;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.main-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 53%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 30px;
+    z-index: 1;
+}
+
+.text-section {
+    position: relative;
+    z-index: 2;
+    max-width: 50%;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.delivery-type {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+.text-section h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin: 50px 0 20px 0;
+    line-height: 1.2;
+}
+
+.create-order-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 20px 56px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.create-order-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.image-section {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    width: 70%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 30px;
+    z-index: 0;
+}
+
+.truck-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-section {
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.order-path {
+    font-size: 18px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.order-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.step-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+}
+
+.order-path span {
+    font-weight: bold;
+}
+
+.step-arrow {
+    font-size: 18px;
+    color: #555;
+}
+
+.modal {
+    width: 400px !important;
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    margin: 0 !important;
+    z-index: 1001 !important;
+}
+
+.modal-dialog {
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 400px !important;
+}
+
+.modal-content {
+    border-radius: 30px !important;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    border: none !important;
+}
+
+.modal-header {
+    border-bottom: none !important;
+    padding: 0 !important;
+}
+
+.modal-title {
+    margin-bottom: 20px;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-sizing: border-box;
+}
+
+.modal-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 30px;
+    background-color: #000;
+    color: #fff;
+}
+
+.modal-btn:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.modal-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #000;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+.drivers-section, .trucks-section, .clients-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+.drivers-table, .trucks-table, .clients-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    overflow: hidden;
+    table-layout: fixed;
+}
+
+.drivers-table th,
+.drivers-table td,
+.trucks-table th,
+.trucks-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    width: 25%;
+}
+
+.clients-table th,
+.clients-table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    width: 20%; /* 5 колонок, поэтому 100% / 5 = 20% */
+}
+
+.drivers-table th,
+.trucks-table th,
+.clients-table th {
+    background-color: #f5f4f2;
+    font-weight: bold;
+}
+
+.drivers-table tr:hover,
+.trucks-table tr:hover,
+.clients-table tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.drivers-table tr.selected,
+.trucks-table tr.selected,
+.clients-table tr.selected {
+    background-color: #e0e0e0;
+}
+
+.drivers-actions, .trucks-actions, .clients-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.orders-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+    min-height: 500px;
+}
+
+.orders-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.orders-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.order-card {
+    background-color: #f5f4f2;
+    border-radius: 15px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+}
+
+.order-card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.order-details, .client-details, .driver-details, .truck-details {
+    margin-bottom: 15px;
+}
+
+.order-details p, .client-details p, .driver-details p, .truck-details p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.client-details h4, .driver-details h4, .truck-details h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.order-card.selected {
+    border: 2px solid #007bff;
+    background-color: #e7f1ff;
+}
+
+.order-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.order-actions .modal-btn {
+    flex: 1;
+}
+
+/* В конец файла HomePage.css */
+
+.orders-list {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+
+.order-card {
+    display: inline-block;
+    vertical-align: top;
+    width: 300px; /* Установите фиксированную ширину для карточек */
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-actions .modal-btn {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.card-actions {
+    margin-top: 10px;
+}
